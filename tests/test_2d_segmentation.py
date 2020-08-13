@@ -20,6 +20,9 @@ class Test2DSegmentation(MockServerTestCase):
         # Test that the command executed successfully
         self.check_success(result, command_name="Send inference request")
         self.assertEqual(result.returncode, 0)
+        
+        for i in range(30):
+            time.sleep(1)
 
         output_files = os.listdir(os.path.join(self.inference_test_dir, self.output_dir))
 
